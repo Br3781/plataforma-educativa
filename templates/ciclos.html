@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ carrera.nombre }} - Ciclos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .btn-ciclo { background: white; padding: 15px; border-radius: 6px; text-decoration: none; color: #333; text-align: center; font-weight: bold; border: 1px solid #ddd; display: block; }
+        .btn-ciclo:hover { background: #2e7d32; color: white; }
+    </style>
+</head>
+<body>
+    <a href="/">← Volver a Carreras</a>
+    <h1>{{ carrera.nombre }}</h1>
+    <h2>Selecciona el Ciclo:</h2>
+    <div class="grid">
+        {% for c in ciclos %}
+            <a class="btn-ciclo" href="/carrera/{{ id_carrera }}/ciclo/{{ c }}">Ciclo {{ c }}</a>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ curso }} - {{ anio }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .box { background: white; padding: 25px; border-radius: 8px; max-width: 500px; margin: 0 auto; text-align: center; }
+        .btn { padding: 10px 20px; margin: 5px; border: none; cursor: pointer; border-radius: 4px; font-size: 16px; }
+        .btn-si { background-color: #2e7d32; color: white; }
+        .btn-no { background-color: #c62828; color: white; text-decoration: none; display: inline-block; }
+        .btn-ya { background-color: #0288d1; color: white; }
+        .seccion-oculta { display: none; margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 6px; }
+        input[type="text"] { padding: 8px; width: 200px; font-size: 15px; }
+    </style>
+    <script>
+        function mostrarQR() {
+            document.getElementById('seccion-qr').style.display = 'block';
+            document.getElementById('seccion-codigo').style.display = 'none';
+        }
+        function mostrarCodigo() {
+            document.getElementById('seccion-codigo').style.display = 'block';
+            document.getElementById('seccion-qr').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1>{{ curso }} (Año {{ anio }})</h1>
+        <p><strong>¿Quieres adquirir el documento de este curso?</strong></p>
+
+        <div>
+            <button class="btn btn-si" onclick="mostrarQR()">Sí</button>
+            <a class="btn btn-no" href="/">No</a>
+            <button class="btn btn-ya" onclick="mostrarCodigo()">Ya adquirí el documento</button>
+        </div>
+
+        <div id="seccion-qr" class="seccion-oculta">
+            <h3>Monto a pagar: S/ 2.00</h3>
+            <p>Escanea el código QR para cancelar y solicitar tu código de acceso.</p>
+            <img src="https://via.placeholder.com/180?text=QR+S/+2.00" alt="Código QR de 2 Soles">
+        </div>
+
+        <div id="seccion-codigo" class="seccion-oculta">
+            <h3>Ingresa tu código de acceso:</h3>
+            <form action="/verificar" method="POST">
+                <input type="hidden" name="curso" value="{{ curso }}">
+                <input type="hidden" name="anio" value="{{ anio }}">
+                <input type="text" name="codigo" placeholder="Ej: ING2026" required>
+                <button type="submit" class="btn btn-si">Ver Documento</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecciona el Año</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .card { background: white; padding: 15px; margin: 10px 0; border-radius: 6px; text-decoration: none; color: #333; display: block; font-size: 18px; border-left: 5px solid #2e7d32; font-weight: bold; }
+        .card:hover { background: #e8f5e9; }
+    </style>
+</head>
+<body>
+    <a href="/carrera/{{ id_carrera }}/ciclo/{{ num_ciclo }}">← Volver a Cursos</a>
+    <h1>{{ curso }}</h1>
+    <h2>Selecciona el Año del Examen / Material:</h2>
+    {% for a in anios %}
+        <a class="card" href="/carrera/{{ id_carrera }}/ciclo/{{ num_ciclo }}/curso/{{ curso }}/anio/{{ a }}">Exámenes del Año {{ a }}</a>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma de Estudios</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .card { background: white; padding: 20px; margin: 10px 0; border-radius: 8px; text-decoration: none; color: #333; display: block; font-size: 20px; font-weight: bold; border-left: 5px solid #2e7d32; }
+        .card:hover { background: #e8f5e9; }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a la Plataforma Educativa</h1>
+    <h2>Selecciona tu Carrera:</h2>
+    {% for id, carrera in carreras.items() %}
+        <a class="card" href="/carrera/{{ id }}">{{ carrera.nombre }}</a>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos - Ciclo {{ num_ciclo }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .curso-item { background: white; padding: 15px; margin: 8px 0; border-radius: 5px; text-decoration: none; color: #0288d1; font-weight: bold; display: block; }
+        .curso-item:hover { background: #e3f2fd; }
+    </style>
+</head>
+<body>
+    <a href="/carrera/{{ id_carrera }}">← Volver a Ciclos</a>
+    <h1>{{ carrera.nombre }} - Ciclo {{ num_ciclo }}</h1>
+    <h2>Selecciona un Curso:</h2>
+    {% for curso in cursos %}
+        <a class="curso-item" href="/carrera/{{ id_carrera }}/ciclo/{{ num_ciclo }}/curso/{{ curso }}">{{ curso }}</a>
+    {% endfor %}
+</body>
+</html>
